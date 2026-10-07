@@ -40,7 +40,8 @@ app.get("/", (req, res) => {
 
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
-app.listen(PORT, () => {
-  console.log(`API berjalan di http://localhost:${PORT}`);
-  console.log(`Swagger tersedia di http://localhost:${PORT}/api-docs`);
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Server berjalan di port ${PORT}`);
 });
